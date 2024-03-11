@@ -19,6 +19,12 @@ public class DebugNavMeshAgent : MonoBehaviour
     // Update is called once per frame
     void OnDrawGizmos()
     {
+        if (agent == null)
+        {
+            agent = GetComponent<NavMeshAgent>();
+            if (agent == null) return;
+        }
+
         if (velocity)
         {
             Gizmos.color = Color.green;
@@ -44,4 +50,5 @@ public class DebugNavMeshAgent : MonoBehaviour
             }
         }
     }
+
 }
